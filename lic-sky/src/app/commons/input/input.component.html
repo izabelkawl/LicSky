@@ -1,0 +1,8 @@
+<form [formGroup]="form" class="d-flex row">
+  <ng-container *ngFor="let control of formConfig">
+    <mat-form-field appearance="fill" [color]="control.color">
+      <mat-label>{{ control.label }}</mat-label>
+      <input matInput [formControlName]="control.formControlName"/>
+    </mat-form-field>
+  </ng-container>
+</form>
