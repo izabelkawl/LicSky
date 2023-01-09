@@ -1,51 +1,14 @@
 <ng-container *ngIf="buttonsConfig">
   <ng-container *ngFor="let button of buttonsConfig">
-    <ng-container
-      [ngTemplateOutlet]="buttonConfig"
-      [ngTemplateOutletContext]="{ button }"
-    ></ng-container>
+    <button
+      #button
+      mat-flat-button
+      [type]="button.type"
+      [ngClass]="button.className"
+      [matTooltip]="button.tooltip ?? ''"
+      [routerLink]="button.routerLink"
+    >
+      {{ button.name }}
+    </button>
   </ng-container>
 </ng-container>
-
-<ng-template #buttonConfig let-button="button">
-  <ng-container [ngSwitch]="button.matType">
-    <ng-container *ngSwitchDefault>
-      <button
-        mat-button
-        [type]="button.type"
-        [color]="button.color"
-        [ngClass]="button.className"
-        [matTooltip]="button.tooltip"
-        [routerLink]="button.routerLink"
-      >
-        {{ button.name }}
-      </button>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'mat-raised-button'">
-      <button
-        mat-raised-button
-        [type]="button.type"
-        [color]="button.color"
-        [ngClass]="button.className"
-        [matTooltip]="button.tooltip"
-        [routerLink]="button.routerLink"
-      >
-        {{ button.name }}
-      </button>
-    </ng-container>
-
-    <ng-container *ngSwitchCase="'mat-flat-button'">
-      <button
-        mat-flat-button
-        [type]="button.type"
-        [color]="button.color"
-        [ngClass]="button.className"
-        [matTooltip]="button.tooltip"
-        [routerLink]="button.routerLink"
-      >
-        {{ button.name }}
-      </button>
-    </ng-container>
-  </ng-container>
-</ng-template>

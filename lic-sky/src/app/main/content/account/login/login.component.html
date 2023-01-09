@@ -1,7 +1,6 @@
 <div class="d-flex align-items-center h-100">
   <div class="m-auto col-4">
     <app-link
-      *ngIf="isLogin()"
       class="d-flex flex-row-reverse mb-4"
       routerLink="/register"
       name="Nie masz konta? Zarejestruj się!"
@@ -9,17 +8,16 @@
 
     <h1 class="mb-3">{{ getHeader() }}</h1>
     <app-input [form]="form" [formConfig]="formConfig"></app-input>
-    <app-button [buttonsConfig]="buttonConfig"></app-button>
+    <app-button [buttonsConfig]="buttonConfig" (click)="onClickLogin()"></app-button>
 
     <app-link
-      *ngIf="isLogin()"
       class="d-flex mt-2"
-      routerLink="/register"
+      routerLink="/"
       name="Zapomniałeś(-łaś) hasła?"
     ></app-link>
 
     <ng-container
-      [ngTemplateOutlet]="isLogin() ? otherLoginMethods : null"
+      [ngTemplateOutlet]="otherLoginMethods"
     ></ng-container>
   </div>
 </div>

@@ -12,7 +12,7 @@ export function generateButtonsConfig(
       tooltip: key,
       className,
       color: (Colors as any)[key] ?? 'primary',
-      matType: 'mat-flat-button',
+      matType: 'mat-button',
       routerLink: (Routes as any)[key] ?? `/${key.toLowerCase()}`,
     };
   });
