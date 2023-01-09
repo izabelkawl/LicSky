@@ -1,0 +1,10 @@
+<div class="navbar pt-3">
+  <div class="d-flex flex-row col-10 m-auto">
+    <button mat-icon-button aria-label="heart icon" routerLink="home">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <div class="ms-auto mt-1">
+      <app-button [buttonsConfig]="buttons | loginPipe: logged"></app-button>
+    </div>
+  </div>
+</div>

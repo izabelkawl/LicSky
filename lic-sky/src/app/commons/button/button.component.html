@@ -1,1 +1,14 @@
-<button mat-button [type]="type" [color]="color" [matTooltip]="tooltip">{{ name }}</button>
+<ng-container *ngIf="buttonsConfig">
+  <ng-container *ngFor="let button of buttonsConfig">
+    <button
+      #button
+      mat-flat-button
+      [type]="button.type"
+      [ngClass]="button.className"
+      [matTooltip]="button.tooltip ?? ''"
+      [routerLink]="button.routerLink"
+    >
+      {{ button.name }}
+    </button>
+  </ng-container>
+</ng-container>

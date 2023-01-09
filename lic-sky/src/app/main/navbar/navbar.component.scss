@@ -1,0 +1,7 @@
+@import '../../../assets/scss/variables.scss';
+
+.navbar {
+  background-color: $bg-navy;
+
+  @include box-shadow;
+}

@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center h-100">
+  <div class="m-auto col-4">
+    <app-link
+      class="d-flex flex-row-reverse mb-4"
+      routerLink="/register"
+      name="Nie masz konta? Zarejestruj się!"
+    ></app-link>
+
+    <h1 class="mb-3">{{ getHeader() }}</h1>
+    <app-input [form]="form" [formConfig]="formConfig"></app-input>
+    <app-button [buttonsConfig]="buttonConfig" (click)="onClickLogin()"></app-button>
+
+    <app-link
+      class="d-flex mt-2"
+      routerLink="/"
+      name="Zapomniałeś(-łaś) hasła?"
+    ></app-link>
+
+    <ng-container
+      [ngTemplateOutlet]="otherLoginMethods"
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template #otherLoginMethods>
+  <div class="mt-5">
+    <h2>Lub podłącz istniejące konto</h2>
+    <app-button [buttonsConfig]="otherButtonConfig"></app-button>
+  </div>
+</ng-template>
